@@ -19,27 +19,28 @@ const articleHearts = document.querySelectorAll(".like-glyph");
 function likeCallback(e) {
   const heart = e.target;
   mimicServerCall()
-    .then(function(serverMessage){
+    .then(function(serverMessage)
+    {
+    
       // STEP 2: Uncomment the 3 lines after the alert.
       // Here we're using Pillar 1 (DOM Manipulation) to update the screen and
       // mimicking Pillar 3 (Server Communication) to only update the screen if
       // the sending of information to the server succeeds.
       alert("You notified the server!");
-   heart.style.color = colorStates[heart.style.color];
+      heart.style.color = colorStates[heart.style.color];
     })
     .catch(function(error) {
       alert("Something went wrong!");
     });
-}
-
+    }
 // STEP 3: In order for the call to the server and the update of the screen to
 // work, we need to add a click event listener to the elements we identified in
 // STEP 1. That's Pillar 2, event handling. Uncomment this code:
+for (const glyph of articleHearts) {
+  glyph.addEventListener("click", likeCallback);
+ }
 
-       for (const glyph of articleHearts) {
-        glyph.addEventListener("click", likeCallback);
-       }
-      
+
 
 // STEP 4: 
 
